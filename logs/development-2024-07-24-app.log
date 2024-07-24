@@ -1,0 +1,25 @@
+2024-07-24 11:10:22 [info] [Wallet System API]: Starting [Wallet System API] on port=[2332]
+2024-07-24 11:10:25 [info] [Wallet System API]: Starting Nest application...
+2024-07-24 11:10:25 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-24 11:10:25 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-24 11:10:25 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-24 11:10:25 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-24 11:10:25 [info] [Wallet System API]: Mapped {/auth/reset-password/:id, POST} route
+2024-07-24 11:10:25 [info] [Wallet System API]: UserController {/users}:
+2024-07-24 11:10:25 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-24 11:10:25 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-24 11:10:25 [info] [Wallet System API]: Mapped {/users/:id, PUT} route
+2024-07-24 11:10:25 [info] [Wallet System API]: Mapped {/users/:id, DELETE} route
+2024-07-24 11:10:25 [error] [Wallet System API]: Transporter is ready
+2024-07-24 11:10:25 [info] [Wallet System API]: Nest application successfully started

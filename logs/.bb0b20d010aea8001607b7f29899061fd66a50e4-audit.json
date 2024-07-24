@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/olatisun/gray/wallet-system-api/logs/.bb0b20d010aea8001607b7f29899061fd66a50e4-audit.json",
+    "files": [
+        {
+            "date": 1721815822234,
+            "name": "/home/olatisun/gray/wallet-system-api/logs/development-2024-07-24-app.log",
+            "hash": "cdd522230802d124206b3c27a4f8d46a11ecb76897804dea9d3e99c0cad0e71c"
+        }
+    ],
+    "hashType": "sha256"
+}
