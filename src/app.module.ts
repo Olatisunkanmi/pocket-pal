@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { EmailService } from './common/email/email.service';
 import { EmailModule } from './common/email/email.module';
 import { configuration, validate } from 'config/configuration';
+import { WalletsModule } from './wallets/wallets.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { configuration, validate } from 'config/configuration';
     AuthModule,
     UsersModule,
     EmailModule,
+    WalletsModule,
   ],
   controllers: [],
   providers: [EmailService],
