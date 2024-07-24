@@ -218,4 +218,8 @@ export class AppUtilities {
   public static createPath(path: string) {
     return fs.mkdirSync(path, { recursive: true });
   }
+
+  public static generateWalletNumber(): string {
+    return Math.floor(1000000000 + Math.random() * 9000000000).toString();
+  }
 }
