@@ -22,27 +22,21 @@ export class WalletsService extends CrudService<
     });
   }
 
-  async createWallet(createWalletDto: CreateWalletDto): Promise<Wallet> {
+  async createWallet(createWalletDto: CreateWalletDto): Promise<Wallet | void> {
     const { userId, balance } = createWalletDto;
 
-    return await this.create({
+    return (await this.create({
       data: {
         userId,
         balance: parseFloat(balance.toString()),
         number: AppUtilities.generateWalletNumber(),
       },
-    });
+    })) as Wallet;
   }
 
   async findOne(id: string): Promise<Wallet> {
-    const wallet = await this.findUnique({
+    return (await this.findUnique({
       where: { id },
-    });
-    if (!wallet) {
-      throw new NotFoundException(`Wallet with ID ${id} not found`);
-    }
-    return wallet;
+    })) as Wallet;
   }
-
-
 }
