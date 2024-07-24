@@ -24,7 +24,7 @@
     "db.migration.create": "npx prisma migrate dev --create-only --schema=prisma/schema.prisma",
     "db.migration.run": "npx prisma migrate deploy --schema=prisma/schema.prisma",
     "db.seed:runner": "ts-node ./src/common/database/seed-data/seed-runner.ts",
-    "clean": "rm -rf dist/ .logs/"
+    "clean": "rm -rf dist/ logs/"
   },
   "dependencies": {
     "@nestjs-modules/mailer": "^1.6.1",

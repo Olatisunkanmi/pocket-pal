@@ -1,4 +1,5 @@
 # Logs
+logs/
 logs
 *.log
 npm-debug.log*
@@ -186,3 +187,4 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+logs/development-2024-07-24-app.log
