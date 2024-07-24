@@ -14,12 +14,14 @@ model User {
   first_name String
   last_name  String
 
-  balance   Float     @default(0.0)
   lastLogin DateTime?
   tokens    Token[]
+  wallets   Wallet[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("users")
 }
 
 model Token {
@@ -31,4 +33,19 @@ model Token {
   user      User     @relation(fields: [userId], references: [id])
 
   @@index([userId], name: "user_id")
+  @@map("tokens")
+}
+
+model Wallet {
+  id      String @id @default(uuid())
+  number  String @unique
+  balance Float  @default(0.0)
+  userId  String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("wallets")
 }
