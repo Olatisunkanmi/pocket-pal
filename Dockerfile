@@ -39,7 +39,10 @@ RUN chown -R node:node /usr/src/app
 COPY --from=build /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/dist ./dist
 
+RUN  npm run postbuild
 COPY --from=build /usr/src/app/templates ./templates
+
+
 
 
 RUN chmod +x docker-entrypoint.mjs
