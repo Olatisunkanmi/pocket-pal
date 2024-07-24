@@ -16,7 +16,19 @@ model User {
 
   balance   Float     @default(0.0)
   lastLogin DateTime?
+  tokens    Token[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Token {
+  id        Int      @id @default(autoincrement())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@index([userId], name: "user_id")
 }
