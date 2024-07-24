@@ -18,8 +18,8 @@ COPY package*.json ./
 COPY . .
 COPY --from=development /usr/src/app/node_modules ./node_modules
 
-RUN npm schema.generate
-RUN npm build
+RUN npm run schema.generate
+RUN npm run build
 
 ENV NODE_ENV production
 RUN npm install --frozen-lockfile --production
