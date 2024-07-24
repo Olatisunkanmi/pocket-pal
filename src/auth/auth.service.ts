@@ -8,14 +8,15 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { UserLoginDto, UserSignUpDto } from './dto/auth.dto';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, User } from '@prisma/client';
 import { AppUtilities } from 'src/app.utilities';
 import { CONSTANT } from 'src/common/constants';
-import { changePasswordDto } from './dto/resetPassword';
+import { resetPasswordDto } from './dto/resetPassword';
 import { EmailService } from 'src/common/email/email.service';
 import AppLogger from 'src/common/logger/logger.config';
 
-const { CREDS_TAKEN, INCORRECT_CREDS, SIGN_IN_FAILED } = CONSTANT;
+const { CREDS_TAKEN, INCORRECT_CREDS, SIGN_IN_FAILED, LOGIN_URL_SENT } =
+  CONSTANT;
 
 @Injectable()
 class AuthService {
@@ -62,23 +63,6 @@ class AuthService {
   }
 
   /**
-   * @private {verifyUserWithPassword}
-   */
-  private async verifyUserWithPassword(id: string, dto: changePasswordDto) {
-    const user = await this.prisma.user.findUniqueOrThrow({
-      where: { id: id },
-    });
-
-    const isCorrectPassword = await AppUtilities.validatePassword(
-      user.password,
-      dto.password,
-    );
-
-    if (!isCorrectPassword) throw new ForbiddenException(INCORRECT_CREDS);
-    else return user;
-  }
-
-  /**
    * User SignUp
    */
   async signUp(dto: UserSignUpDto) {
@@ -119,22 +103,40 @@ class AuthService {
   }
 
   /**
-   * User Change Password
+   * User reset Password
    */
-  async changeUserPassword(dto: changePasswordDto, id: string) {
-    const user = await this.verifyUserWithPassword(id, dto);
+  async resetUserPassword(dto: resetPasswordDto) {
+    const isExistingUser = (await this.usersService.findUserByEmail(
+      dto.email,
+    )) as User;
 
-    if (user) {
-      const password = await AppUtilities.hashPassword(dto.password);
-      return await this.prisma.user.update({
-        where: {
-          id: id,
-        },
-        data: {
-          password: password,
-        },
-      });
+    if (!isExistingUser) {
+      this.logger.warn(
+        `THREAT: NON-EXISTING USER TRIED TO RESET PASSWORD, CREDS: ${dto.email}`,
+      );
+
+      return LOGIN_URL_SENT;
     }
+
+    const token = AppUtilities.generateToken();
+    const hashedToken = AppUtilities.hashToken(token);
+
+    const resetToken = await this.prisma.token.create({
+      data: {
+        token: hashedToken,
+        userId: isExistingUser.id,
+        expiresAt: new Date(Date.now() + 3600000),
+      },
+    });
+
+    const opts = {
+      email: isExistingUser.email,
+      username: isExistingUser.last_name,
+      resetToken: resetToken.token,
+    };
+
+    await await this.emailService.sendPasswordResetMail(opts);
+    return LOGIN_URL_SENT;
   }
 }
 

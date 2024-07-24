@@ -2,6 +2,8 @@ import { Global, Module } from '@nestjs/common';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { EmailService } from './email.service';
 import { ConfigService } from '@nestjs/config';
+import AppLogger from '../logger/logger.config';
+import { LoggerModule } from '../logger/logger.module';
 
 @Global()
 @Module({
@@ -19,6 +21,7 @@ import { ConfigService } from '@nestjs/config';
       }),
       inject: [ConfigService],
     }),
+    LoggerModule,
   ],
   providers: [EmailService],
   exports: [EmailService],

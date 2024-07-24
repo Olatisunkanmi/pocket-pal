@@ -19,12 +19,12 @@ export class UsersService extends CrudService<
     super(prisma.user);
   }
 
-  async findUserByEmail(email: string) {
-    return await this.findUnique({
+  async findUserByEmail(email: string): Promise<User | null> {
+    return (await this.findUnique({
       where: {
         email,
       },
-    });
+    })) as User;
   }
 
   /**

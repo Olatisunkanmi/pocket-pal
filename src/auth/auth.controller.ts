@@ -1,9 +1,9 @@
 import AuthService from '../auth/auth.service';
 import { Public } from '../common/decorators/auth.public.decorator';
-import { Body, Controller, Param, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
+import { resetPasswordDto } from './dto/resetPassword';
 import { ApiTags } from '@nestjs/swagger';
 import { UserLoginDto, UserSignUpDto } from './dto/auth.dto';
-import { changePasswordDto } from './dto/resetPassword';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -32,11 +32,8 @@ export class AuthController {
    * Change user password
    */
   @Public()
-  @Post('reset-password/:id')
-  async changeUserPassword(
-    @Body() dto: changePasswordDto,
-    @Param('id') id: string,
-  ) {
-    return this.authService.changeUserPassword(dto, id);
+  @Post('reset-password')
+  async changeUserPassword(@Body() dto: resetPasswordDto) {
+    return this.authService.resetUserPassword(dto);
   }
 }
