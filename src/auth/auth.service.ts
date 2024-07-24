@@ -89,7 +89,7 @@ class AuthService {
       return { statusCode: 200, message: user };
     } catch (error) {
       if (error instanceof PrismaClientKnownRequestError) {
-        throw new ForbiddenException(CREDS_TAKEN);
+        throw new UnauthorizedException(CREDS_TAKEN);
       }
       throw error;
     }
@@ -108,11 +108,12 @@ class AuthService {
         user.password,
       );
 
-      if (!isMatch) throw new UnauthorizedException(SIGN_IN_FAILED);
+      if (!isMatch) throw new UnauthorizedException(INCORRECT_CREDS);
 
       return this.signToken(user.id);
     } catch (error) {
       if (error.code == 'P2025') throw new ForbiddenException(INCORRECT_CREDS);
+      this.logger.error(`Error Occured during User Login ${error}`);
       throw error;
     }
   }

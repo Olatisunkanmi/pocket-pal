@@ -24,7 +24,7 @@ export class AuthController {
    */
   @Public()
   @Post('login')
-  login(@Body() dto: UserLoginDto) {
+  async login(@Body() dto: UserLoginDto) {
     return this.authService.login(dto);
   }
 
@@ -33,7 +33,10 @@ export class AuthController {
    */
   @Public()
   @Post('reset-password/:id')
-  changeUserPassword(@Body() dto: changePasswordDto, @Param('id') id: string) {
+  async changeUserPassword(
+    @Body() dto: changePasswordDto,
+    @Param('id') id: string,
+  ) {
     return this.authService.changeUserPassword(dto, id);
   }
 }

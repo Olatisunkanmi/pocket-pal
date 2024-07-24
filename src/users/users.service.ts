@@ -1,6 +1,6 @@
 import { CrudService } from '../common/database/crud.service';
 import { UsersMapType } from '../users/users.maptype';
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { Prisma, PrismaClient } from '@prisma/client';
 import { updateUserDto } from './dto/update-user.dto';
 import { UserSignUpDto } from 'src/auth/dto/auth.dto';
@@ -19,14 +19,29 @@ export class UsersService extends CrudService<
     super(prisma.user);
   }
 
+  async findUserByEmail(email: string) {
+    return await this.findUnique({
+      where: {
+        email,
+      },
+    });
+  }
+
   /**
    * Create User in DB
    */
-  async createUser(dto: UserSignUpDto, password?: string) {
+  async createUser(dto: UserSignUpDto, password: string) {
     try {
-      const user = (await this.prisma.user.create({
+      const isExistingUser = await this.findUserByEmail(dto.email);
+
+      if (isExistingUser) {
+        throw new ConflictException('CREDENTIALS ALREADY EXIST');
+      }
+
+      const user = (await this.create({
         data: {
           ...dto,
+          password,
         },
         select: {
           id: true,
@@ -35,7 +50,7 @@ export class UsersService extends CrudService<
       })) as User;
       return user;
     } catch (error) {
-      console.log('Error Creating User', error);
+      throw error;
     }
   }
   /**

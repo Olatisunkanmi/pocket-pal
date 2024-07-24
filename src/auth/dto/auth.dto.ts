@@ -26,10 +26,10 @@ export class UserSignUpDto {
   password: string;
 
   @IsString()
-  @MinLength(6)
+  @IsNotEmpty()
   first_name: string;
 
   @IsString()
-  @MinLength(6)
+  @IsNotEmpty()
   last_name: string;
 }
