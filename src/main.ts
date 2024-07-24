@@ -34,6 +34,7 @@ async function bootstrap() {
       .setDescription(appName)
       .setVersion(appVersion)
       .addServer(serverUrl, 'Development Server')
+      .addServer(prodUrl, 'Production Server')
 
       .addBearerAuth();
 

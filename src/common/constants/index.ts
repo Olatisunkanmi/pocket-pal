@@ -30,8 +30,8 @@ export const CONSTANT = {
 export const SENSITIVE_INFO = ['password'];
 
 export const MAIL = {
-  noreply: 'noreply@playlistswap.ng',
-  waitListSubject: 'Welcome to Playlist Swap',
-  waitListFrom: 'The Swap Crew',
-  urlLogin: "PlaylistSwap Login: Here's the secure login link you requested",
+  noreply: 'noreply@walletAPI.ng',
+  waitListSubject: 'Welcome to Wallet API',
+  waitListFrom: 'Wallet API',
+  resetPassword: "Wallet API: Here's the reset password link you requested",
 };
