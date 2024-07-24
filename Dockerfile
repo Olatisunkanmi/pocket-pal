@@ -2,8 +2,8 @@
 FROM node:18-alpine AS development
 
 WORKDIR /usr/src/app
-COPY package*.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production=false
+COPY package*.json ./
+RUN npm install --frozen-lockfile --production=false
 COPY . .
 
 RUN chown -R node:node /usr/src/app
@@ -14,15 +14,15 @@ FROM node:18-alpine AS build
 
 WORKDIR /usr/src/app
 
-COPY package*.json yarn.lock ./
+COPY package*.json ./
 COPY . .
 COPY --from=development /usr/src/app/node_modules ./node_modules
 
-RUN yarn schema.generate
-RUN yarn build
+RUN npm schema.generate
+RUN npm build
 
 ENV NODE_ENV production
-RUN yarn install --frozen-lockfile --production
+RUN npm install --frozen-lockfile --production
 
 RUN chown -R node:node /usr/src/app
 USER node
