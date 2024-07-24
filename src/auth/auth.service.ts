@@ -3,6 +3,7 @@ import {
   Injectable,
   ForbiddenException,
   UnauthorizedException,
+  BadRequestException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
@@ -11,11 +12,11 @@ import { UserLoginDto, UserSignUpDto } from './dto/auth.dto';
 import { PrismaClient, User } from '@prisma/client';
 import { AppUtilities } from 'src/app.utilities';
 import { CONSTANT } from 'src/common/constants';
-import { resetPasswordDto } from './dto/resetPassword';
+import { ChangeUserPasswordDto, ResetPasswordDto } from './dto/resetPassword';
 import { EmailService } from 'src/common/email/email.service';
 import AppLogger from 'src/common/logger/logger.config';
 
-const { CREDS_TAKEN, INCORRECT_CREDS, SIGN_IN_FAILED, LOGIN_URL_SENT } =
+const { CREDS_TAKEN, INCORRECT_CREDS, LOGIN_URL_SENT, PASSWORD_MISMATCH } =
   CONSTANT;
 
 @Injectable()
@@ -102,10 +103,7 @@ class AuthService {
     }
   }
 
-  /**
-   * User reset Password
-   */
-  async resetUserPassword(dto: resetPasswordDto) {
+  async sendResetPasswordMail(dto: ResetPasswordDto) {
     const isExistingUser = (await this.usersService.findUserByEmail(
       dto.email,
     )) as User;
@@ -137,6 +135,33 @@ class AuthService {
 
     await await this.emailService.sendPasswordResetMail(opts);
     return LOGIN_URL_SENT;
+  }
+
+  async resetPassword(dto: ChangeUserPasswordDto) {
+    const { password, confirmPassword, token } = dto;
+
+    if (password !== confirmPassword) {
+      throw new BadRequestException(PASSWORD_MISMATCH);
+    }
+
+    const resetToken = await this.prisma.token.findUnique({
+      where: { token },
+    });
+
+    if (!resetToken) {
+      throw new BadRequestException('Invalid token');
+    }
+
+    const hashedPassword = await AppUtilities.hashPassword(password);
+
+    await this.prisma.user.update({
+      where: { id: resetToken.userId },
+      data: { password: hashedPassword },
+    });
+
+    await this.prisma.token.delete({
+      where: { token },
+    });
   }
 }
 

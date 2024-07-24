@@ -12,7 +12,6 @@ export const CONSTANT = {
   USER_NOT_FOUND: 'User not found',
   INVALID_PASSWORD: 'Invalid Password',
   INVALID_TOKEN: 'Invalid Token',
-  INVALID_REFERRAL: 'Invalid Referral Code',
   INVALID_USER: 'Invalid User',
   INVALID_EMAIL: 'Invalid Email',
   INVALID_USERNAME: 'Invalid Username',
@@ -25,6 +24,7 @@ export const CONSTANT = {
   LOGIN_URL_SENT:
     'A url has been sent to your mail, Please click the link to login',
   UNAUTHORIZED: 'You are not Authorized to access this resource',
+  PASSWORD_MISMATCH: 'Passwords do not match',
 };
 
 export const SENSITIVE_INFO = ['password'];

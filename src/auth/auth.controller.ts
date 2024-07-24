@@ -1,7 +1,16 @@
 import AuthService from '../auth/auth.service';
 import { Public } from '../common/decorators/auth.public.decorator';
-import { Body, Controller, Post } from '@nestjs/common';
-import { resetPasswordDto } from './dto/resetPassword';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpStatus,
+  Post,
+  Query,
+  Render,
+  Res,
+} from '@nestjs/common';
+import { ChangeUserPasswordDto, ResetPasswordDto } from './dto/resetPassword';
 import { ApiTags } from '@nestjs/swagger';
 import { UserLoginDto, UserSignUpDto } from './dto/auth.dto';
 
@@ -32,8 +41,28 @@ export class AuthController {
    * Change user password
    */
   @Public()
+  @Post('reset-user-password')
+  async changeUserPassword(@Body() dto: ResetPasswordDto) {
+    return this.authService.sendResetPasswordMail(dto);
+  }
+
+  @Public()
+  @Get('reset-password')
+  @Render('resetPassword')
+  resetPasswordPage(@Query('token') token: string): { token: string } {
+    return { token };
+  }
+
+  @Public()
   @Post('reset-password')
-  async changeUserPassword(@Body() dto: resetPasswordDto) {
-    return this.authService.resetUserPassword(dto);
+  async handleResetPassword(
+    @Body() dto: ChangeUserPasswordDto,
+    @Res() res,
+  ): Promise<void | string> {
+    await this.authService.resetPassword(dto);
+
+    return res
+      .status(HttpStatus.OK)
+      .send('Password has been reset successfully');
   }
 }

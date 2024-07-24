@@ -51,7 +51,7 @@ export class EmailService {
 
   public async sendPasswordResetMail(resetMailOpts: ResetMailOpts) {
     try {
-      const resetUrl = `${this.cfg.get('app')}/resetPassword?token=${
+      const resetUrl = `${this.cfg.get('app')}/auth/reset-password?token=${
         resetMailOpts.resetToken
       }`;
 
