@@ -10,6 +10,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
+import { WalletsService } from 'src/wallets/wallets.service';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { PassportModule } from '@nestjs/passport';
     AuthService,
     JwtStrategy,
     AppLogger,
+    WalletsService,
   ],
   controllers: [AuthController],
 })

@@ -41,7 +41,7 @@ export class AuthController {
    * Change user password
    */
   @Public()
-  @Post('reset-user-password')
+  @Post('request-reset-password')
   async changeUserPassword(@Body() dto: ResetPasswordDto) {
     return this.authService.sendResetPasswordMail(dto);
   }

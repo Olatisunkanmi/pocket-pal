@@ -22,13 +22,11 @@ export class WalletsService extends CrudService<
     });
   }
 
-  async createWallet(createWalletDto: CreateWalletDto): Promise<Wallet | void> {
-    const { userId, balance } = createWalletDto;
-
+  async createWallet(userId: string): Promise<Wallet | void> {
     return (await this.create({
       data: {
         userId,
-        balance: parseFloat(balance.toString()),
+        balance: 500,
         number: AppUtilities.generateWalletNumber(),
       },
     })) as Wallet;

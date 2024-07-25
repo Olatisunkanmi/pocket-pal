@@ -15,6 +15,7 @@ import { CONSTANT } from 'src/common/constants';
 import { ChangeUserPasswordDto, ResetPasswordDto } from './dto/resetPassword';
 import { EmailService } from 'src/common/email/email.service';
 import AppLogger from 'src/common/logger/logger.config';
+import { WalletsService } from 'src/wallets/wallets.service';
 
 const { CREDS_TAKEN, INCORRECT_CREDS, LOGIN_URL_SENT, PASSWORD_MISMATCH } =
   CONSTANT;
@@ -30,6 +31,7 @@ class AuthService {
     private configService: ConfigService,
     private readonly emailService: EmailService,
     private readonly logger: AppLogger,
+    private readonly walletService: WalletsService,
   ) {
     this.jwtExpires = this.configService.get<number>(
       'jwt.signOptions.expiresIn',
@@ -70,6 +72,8 @@ class AuthService {
     try {
       const password = await AppUtilities.hashPassword(dto.password);
       const user = await this.usersService.createUser(dto, password);
+
+      await this.walletService.createWallet(user.id);
 
       return { statusCode: 200, message: user };
     } catch (error) {
