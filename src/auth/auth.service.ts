@@ -3,19 +3,22 @@ import {
   Injectable,
   ForbiddenException,
   UnauthorizedException,
+  BadRequestException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { UserLoginDto, UserSignUpDto } from './dto/auth.dto';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, User } from '@prisma/client';
 import { AppUtilities } from 'src/app.utilities';
 import { CONSTANT } from 'src/common/constants';
-import { changePasswordDto } from './dto/resetPassword';
+import { ChangeUserPasswordDto, ResetPasswordDto } from './dto/resetPassword';
 import { EmailService } from 'src/common/email/email.service';
 import AppLogger from 'src/common/logger/logger.config';
+import { WalletsService } from 'src/wallets/wallets.service';
 
-const { CREDS_TAKEN, INCORRECT_CREDS, SIGN_IN_FAILED } = CONSTANT;
+const { CREDS_TAKEN, INCORRECT_CREDS, LOGIN_URL_SENT, PASSWORD_MISMATCH } =
+  CONSTANT;
 
 @Injectable()
 class AuthService {
@@ -28,6 +31,7 @@ class AuthService {
     private configService: ConfigService,
     private readonly emailService: EmailService,
     private readonly logger: AppLogger,
+    private readonly walletService: WalletsService,
   ) {
     this.jwtExpires = this.configService.get<number>(
       'jwt.signOptions.expiresIn',
@@ -62,29 +66,14 @@ class AuthService {
   }
 
   /**
-   * @private {verifyUserWithPassword}
-   */
-  private async verifyUserWithPassword(id: string, dto: changePasswordDto) {
-    const user = await this.prisma.user.findUniqueOrThrow({
-      where: { id: id },
-    });
-
-    const isCorrectPassword = await AppUtilities.validatePassword(
-      user.password,
-      dto.password,
-    );
-
-    if (!isCorrectPassword) throw new ForbiddenException(INCORRECT_CREDS);
-    else return user;
-  }
-
-  /**
    * User SignUp
    */
   async signUp(dto: UserSignUpDto) {
     try {
       const password = await AppUtilities.hashPassword(dto.password);
       const user = await this.usersService.createUser(dto, password);
+
+      await this.walletService.createWallet(user.id);
 
       return { statusCode: 200, message: user };
     } catch (error) {
@@ -118,23 +107,65 @@ class AuthService {
     }
   }
 
-  /**
-   * User Change Password
-   */
-  async changeUserPassword(dto: changePasswordDto, id: string) {
-    const user = await this.verifyUserWithPassword(id, dto);
+  async sendResetPasswordMail(dto: ResetPasswordDto) {
+    const isExistingUser = (await this.usersService.findUserByEmail(
+      dto.email,
+    )) as User;
 
-    if (user) {
-      const password = await AppUtilities.hashPassword(dto.password);
-      return await this.prisma.user.update({
-        where: {
-          id: id,
-        },
-        data: {
-          password: password,
-        },
-      });
+    if (!isExistingUser) {
+      this.logger.warn(
+        `THREAT: NON-EXISTING USER TRIED TO RESET PASSWORD, CREDS: ${dto.email}`,
+      );
+
+      return LOGIN_URL_SENT;
     }
+
+    const token = AppUtilities.generateToken();
+    const hashedToken = AppUtilities.hashToken(token);
+
+    const resetToken = await this.prisma.token.create({
+      data: {
+        token: hashedToken,
+        userId: isExistingUser.id,
+        expiresAt: new Date(Date.now() + 3600000),
+      },
+    });
+
+    const opts = {
+      email: isExistingUser.email,
+      username: isExistingUser.last_name,
+      resetToken: resetToken.token,
+    };
+
+    await await this.emailService.sendPasswordResetMail(opts);
+    return LOGIN_URL_SENT;
+  }
+
+  async resetPassword(dto: ChangeUserPasswordDto) {
+    const { password, confirmPassword, token } = dto;
+
+    if (password !== confirmPassword) {
+      throw new BadRequestException(PASSWORD_MISMATCH);
+    }
+
+    const resetToken = await this.prisma.token.findUnique({
+      where: { token },
+    });
+
+    if (!resetToken) {
+      throw new BadRequestException('Invalid token');
+    }
+
+    const hashedPassword = await AppUtilities.hashPassword(password);
+
+    await this.prisma.user.update({
+      where: { id: resetToken.userId },
+      data: { password: hashedPassword },
+    });
+
+    await this.prisma.token.delete({
+      where: { token },
+    });
   }
 }
 

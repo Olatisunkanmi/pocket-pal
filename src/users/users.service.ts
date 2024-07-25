@@ -1,8 +1,7 @@
 import { CrudService } from '../common/database/crud.service';
 import { UsersMapType } from '../users/users.maptype';
 import { ConflictException, Injectable } from '@nestjs/common';
-import { Prisma, PrismaClient } from '@prisma/client';
-import { updateUserDto } from './dto/update-user.dto';
+import { Prisma, PrismaClient, Wallet } from '@prisma/client';
 import { UserSignUpDto } from 'src/auth/dto/auth.dto';
 
 export interface User {
@@ -19,12 +18,12 @@ export class UsersService extends CrudService<
     super(prisma.user);
   }
 
-  async findUserByEmail(email: string) {
-    return await this.findUnique({
+  async findUserByEmail(email: string): Promise<User | null> {
+    return (await this.findUnique({
       where: {
         email,
       },
-    });
+    })) as User;
   }
 
   /**
@@ -56,44 +55,17 @@ export class UsersService extends CrudService<
   /**
    * Find User
    */
-  public async getUserById(id: string) {
+  public async getUserById(
+    id: string,
+  ): Promise<(Partial<User> & { wallets: Wallet[] }) | null> {
     return await this.prisma.user.findUnique({
-      where: {
-        id: id,
-      },
-
+      where: { id },
       select: {
-        id: true,
         email: true,
-      },
-    });
-  }
-  /**
-   * Del User
-   */
-  public async deleteUserById(id: any) {
-    await this.prisma.user.delete({
-      where: {
-        id: id,
-      },
-    });
-
-    return {
-      message: 'User Deleted',
-    };
-  }
-  /**
-   * Update User
-   */
-  public async updateById(id: any, data: updateUserDto) {
-    return await this.prisma.user.update({
-      where: {
-        id: id,
-      },
-      data,
-      select: {
         id: true,
-        email: true,
+        first_name: true,
+        last_name: true,
+        wallets: true,
       },
     });
   }
@@ -102,10 +74,11 @@ export class UsersService extends CrudService<
    * Find All Users
    */
   public async getAllUsers(): Promise<any> {
-    return await this.prisma.user.findMany({
+    return await this.findManyPaginate({
       select: {
         id: true,
         email: true,
+        wallets: true,
       },
     });
   }

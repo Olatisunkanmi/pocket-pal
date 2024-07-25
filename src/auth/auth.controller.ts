@@ -1,9 +1,18 @@
 import AuthService from '../auth/auth.service';
 import { Public } from '../common/decorators/auth.public.decorator';
-import { Body, Controller, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpStatus,
+  Post,
+  Query,
+  Render,
+  Res,
+} from '@nestjs/common';
+import { ChangeUserPasswordDto, ResetPasswordDto } from './dto/resetPassword';
 import { ApiTags } from '@nestjs/swagger';
 import { UserLoginDto, UserSignUpDto } from './dto/auth.dto';
-import { changePasswordDto } from './dto/resetPassword';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -32,11 +41,28 @@ export class AuthController {
    * Change user password
    */
   @Public()
-  @Post('reset-password/:id')
-  async changeUserPassword(
-    @Body() dto: changePasswordDto,
-    @Param('id') id: string,
-  ) {
-    return this.authService.changeUserPassword(dto, id);
+  @Post('request-reset-password')
+  async changeUserPassword(@Body() dto: ResetPasswordDto) {
+    return this.authService.sendResetPasswordMail(dto);
+  }
+
+  @Public()
+  @Get('reset-password')
+  @Render('resetPassword')
+  resetPasswordPage(@Query('token') token: string): { token: string } {
+    return { token };
+  }
+
+  @Public()
+  @Post('reset-password')
+  async handleResetPassword(
+    @Body() dto: ChangeUserPasswordDto,
+    @Res() res,
+  ): Promise<void | string> {
+    await this.authService.resetPassword(dto);
+
+    return res
+      .status(HttpStatus.OK)
+      .send('Password has been reset successfully');
   }
 }

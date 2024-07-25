@@ -129,7 +129,7 @@ export const configuration = () => ({
   app:
     process.env.APP_URL || `http://localhost:${process.env.APP_PORT || 3000}`,
   apiPrefix: process.env.API_PREFIX || 'api',
-  prodUrl: process.env.PROD_URL,
+  prodUrl: process.env.PROD_URL || 'https://wallet-system-api.onrender.com',
   jwt: {
     secret: process.env.JWT_SECRET,
     expiresIn: process.env.JWT_EXPIRES_IN,

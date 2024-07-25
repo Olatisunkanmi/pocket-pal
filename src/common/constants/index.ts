@@ -11,8 +11,7 @@ export const CONSTANT = {
   INCORRECT_CREDS: 'Incorrect Credentials',
   USER_NOT_FOUND: 'User not found',
   INVALID_PASSWORD: 'Invalid Password',
-  INVALID_TOKEN: 'Invalid Token',
-  INVALID_REFERRAL: 'Invalid Referral Code',
+  INVALID_TOKEN: 'Invalid Token or Expired Token',
   INVALID_USER: 'Invalid User',
   INVALID_EMAIL: 'Invalid Email',
   INVALID_USERNAME: 'Invalid Username',
@@ -25,13 +24,20 @@ export const CONSTANT = {
   LOGIN_URL_SENT:
     'A url has been sent to your mail, Please click the link to login',
   UNAUTHORIZED: 'You are not Authorized to access this resource',
+  PASSWORD_MISMATCH: 'Passwords do not match',
+  INSUFFICIENT_BALANCE:
+    'Insufficient balance: You do not have enough funds to complete this transaction.',
+  TRANSFER_SUCCESS: 'Funds Transfer Successful',
+  WALLET_NOT_FOUND: 'Wallet with that Account Number not Found',
+  CANNOT_FUND_SELF: 'YOU CANNOT FUND SELF',
+  TRANSACTION_NOT_PERMITTED: 'You are allowed to perform this action',
 };
 
 export const SENSITIVE_INFO = ['password'];
 
 export const MAIL = {
-  noreply: 'noreply@playlistswap.ng',
-  waitListSubject: 'Welcome to Playlist Swap',
-  waitListFrom: 'The Swap Crew',
-  urlLogin: "PlaylistSwap Login: Here's the secure login link you requested",
+  noreply: 'noreply@walletAPI.ng',
+  waitListSubject: 'Welcome to Wallet API',
+  waitListFrom: 'Wallet API',
+  resetPassword: "Wallet API: Here's the reset password link you requested",
 };
