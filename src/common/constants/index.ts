@@ -11,7 +11,7 @@ export const CONSTANT = {
   INCORRECT_CREDS: 'Incorrect Credentials',
   USER_NOT_FOUND: 'User not found',
   INVALID_PASSWORD: 'Invalid Password',
-  INVALID_TOKEN: 'Invalid Token',
+  INVALID_TOKEN: 'Invalid Token or Expired Token',
   INVALID_USER: 'Invalid User',
   INVALID_EMAIL: 'Invalid Email',
   INVALID_USERNAME: 'Invalid Username',
@@ -25,6 +25,8 @@ export const CONSTANT = {
     'A url has been sent to your mail, Please click the link to login',
   UNAUTHORIZED: 'You are not Authorized to access this resource',
   PASSWORD_MISMATCH: 'Passwords do not match',
+  INSUFFICIENT_BALANCE:
+    'Insufficient balance: You do not have enough funds to complete this transaction.',
 };
 
 export const SENSITIVE_INFO = ['password'];

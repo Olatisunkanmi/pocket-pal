@@ -2,7 +2,6 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma, PrismaClient, Wallet } from '@prisma/client';
 import { CrudService } from 'src/common/database/crud.service';
 import { WalletsMapType } from './wallets.maptype';
-import { CreateWalletDto } from './dto/create-wallet.dto';
 import { AppUtilities } from 'src/app.utilities';
 
 @Injectable()
@@ -22,7 +21,7 @@ export class WalletsService extends CrudService<
     });
   }
 
-  async createWallet(userId: string): Promise<Wallet | void> {
+  async createWallet(userId: string): Promise<Wallet | null> {
     return (await this.create({
       data: {
         userId,
@@ -35,6 +34,14 @@ export class WalletsService extends CrudService<
   async findOne(id: string): Promise<Wallet> {
     return (await this.findUnique({
       where: { id },
+    })) as Wallet;
+  }
+
+  async findByNumber(number: string): Promise<Wallet | null> {
+    return (await this.findUnique({
+      where: {
+        number,
+      },
     })) as Wallet;
   }
 }

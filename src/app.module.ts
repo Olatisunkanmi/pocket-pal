@@ -7,6 +7,7 @@ import { EmailModule } from './common/email/email.module';
 import { configuration, validate } from 'config/configuration';
 import { WalletsModule } from './wallets/wallets.module';
 import { TransactionsModule } from './transactions/transactions.module';
+import { TransferModule } from './transfer/transfer.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { TransactionsModule } from './transactions/transactions.module';
     EmailModule,
     WalletsModule,
     TransactionsModule,
+    TransferModule,
   ],
   controllers: [],
   providers: [EmailService],
