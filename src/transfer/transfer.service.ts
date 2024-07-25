@@ -9,7 +9,6 @@ import {
   PrismaClient,
   Transaction,
   TransactionType,
-  User,
 } from '@prisma/client';
 import { CrudService } from 'src/common/database/crud.service';
 import { TransactionsMapType } from './transfer.maptype.dto';
@@ -21,7 +20,13 @@ import {
 } from './dto/create-transfer.dto';
 import { CONSTANT } from 'src/common/constants';
 
-const { INSUFFICIENT_BALANCE } = CONSTANT;
+const {
+  INSUFFICIENT_BALANCE,
+  TRANSFER_SUCCESS,
+  WALLET_NOT_FOUND,
+  CANNOT_FUND_SELF,
+  TRANSACTION_NOT_PERMITTED,
+} = CONSTANT;
 
 @Injectable()
 export class TransferService extends CrudService<
@@ -39,7 +44,7 @@ export class TransferService extends CrudService<
     const senderWallet = await this.walletService.findWalletByUserId(senderId);
 
     if (senderWallet.number === dto.recipientWalletNumber)
-      throw new BadRequestException('YOU CANNOT FUND SELF');
+      throw new BadRequestException(CANNOT_FUND_SELF);
 
     if (senderWallet.balance < dto.amount)
       throw new BadRequestException(INSUFFICIENT_BALANCE);
@@ -48,8 +53,7 @@ export class TransferService extends CrudService<
       dto.recipientWalletNumber,
     );
 
-    if (!recipientWallet)
-      throw new BadRequestException('Recipient Wallet Number not Found');
+    if (!recipientWallet) throw new BadRequestException(WALLET_NOT_FOUND);
 
     return await this.prisma.$transaction(async (prisma) => {
       await prisma.wallet.update({
@@ -72,7 +76,7 @@ export class TransferService extends CrudService<
       });
 
       return {
-        message: 'Funds Transfer Successful',
+        message: TRANSFER_SUCCESS,
         transfer,
       };
     });
@@ -88,11 +92,11 @@ export class TransferService extends CrudService<
     );
 
     if (!destinationWallet) {
-      throw new NotFoundException('Destination wallet not found.');
+      throw new NotFoundException(WALLET_NOT_FOUND);
     }
 
     if (destinationWallet.userId !== userId) {
-      throw new BadRequestException('You can only top up your own wallet.');
+      throw new BadRequestException(TRANSACTION_NOT_PERMITTED);
     }
     const updatedWallet = await this.prisma.wallet.update({
       where: { id: destinationWallet.id },

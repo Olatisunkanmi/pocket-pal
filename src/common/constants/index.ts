@@ -27,6 +27,10 @@ export const CONSTANT = {
   PASSWORD_MISMATCH: 'Passwords do not match',
   INSUFFICIENT_BALANCE:
     'Insufficient balance: You do not have enough funds to complete this transaction.',
+  TRANSFER_SUCCESS: 'Funds Transfer Successful',
+  WALLET_NOT_FOUND: 'Wallet with that Account Number not Found',
+  CANNOT_FUND_SELF: 'YOU CANNOT FUND SELF',
+  TRANSACTION_NOT_PERMITTED: 'You are allowed to perform this action',
 };
 
 export const SENSITIVE_INFO = ['password'];
