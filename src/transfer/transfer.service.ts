@@ -38,6 +38,9 @@ export class TransferService extends CrudService<
   async transferFunds(dto: CreateTransferDto, senderId: string) {
     const senderWallet = await this.walletService.findWalletByUserId(senderId);
 
+    if (senderWallet.number === dto.recipientWalletNumber)
+      throw new BadRequestException('YOU CANNOT FUND SELF');
+
     if (senderWallet.balance < dto.amount)
       throw new BadRequestException(INSUFFICIENT_BALANCE);
 
