@@ -1,0 +1,711 @@
+
+2024-07-25 04:38:12 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 04:38:12 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 04:38:12 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 04:38:12 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 04:38:12 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 04:38:12 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 04:38:12 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 04:38:12 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 04:38:12 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 04:38:12 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 04:38:12 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 04:38:12 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 04:38:12 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 04:38:12 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 04:38:12 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 04:38:12 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 04:38:12 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 04:38:12 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 04:38:12 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 04:38:12 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 04:38:12 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 04:38:12 [error] [Wallet System API]: Transporter is ready
+2024-07-25 04:44:51 [error] [Wallet System API]: 
+Invalid `this.prisma.wallet.findUniqueOrThrow()` invocation in
+/home/olatisun/gray/wallet-system-api/src/wallets/wallets.service.ts:17:37
+
+  14 }
+  15 
+  16 async findWalletByUserId(userId: string): Promise<Wallet | null> {
+→ 17   return await this.prisma.wallet.findUniqueOrThrow({
+         where: {
+           userId: undefined,
+       ?   id?: String,
+       ?   number?: String,
+       ?   AND?: WalletWhereInput | WalletWhereInput[],
+       ?   OR?: WalletWhereInput[],
+       ?   NOT?: WalletWhereInput | WalletWhereInput[],
+       ?   balance?: FloatFilter | Float,
+       ?   createdAt?: DateTimeFilter | DateTime,
+       ?   updatedAt?: DateTimeFilter | DateTime,
+       ?   user?: UserRelationFilter | UserWhereInput,
+       ?   sourceTransactions?: TransactionListRelationFilter,
+       ?   destinationTransactions?: TransactionListRelationFilter
+         }
+       })
+
+Argument `where` of type WalletWhereUniqueInput needs at least one of `id`, `number` or `userId` arguments. Available options are marked with ?.
+2024-07-25 04:47:07 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 04:47:11 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 04:47:11 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 04:47:11 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 04:47:11 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 04:47:11 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 04:47:11 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 04:47:11 [info] [Wallet System API]: WalletsModule dependencies initialized-07-25 04:48:13 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 04:48:52 [error] [Wallet System API]: 
+Invalid `this.prisma.wallet.findUniqueOrThrow()` invocation in
+/home/olatisun/gray/wallet-system-api/src/wallets/wallets.service.ts:18:37
+
+  15 
+  16 async findWalletByUserId(userId: string): Promise<Wallet | null> {
+  17   console.log(userId);
+→ 18   return await this.prisma.wallet.findUniqueOrThrow({
+         where: {
+           userId: undefined,
+       ?   id?: String,
+       ?   number?: String,
+       ?   AND?: WalletWhereInput | WalletWhereInput[],
+       ?   OR?: WalletWhereInput[],
+       ?   NOT?: WalletWhereInput | WalletWhereInput[],
+       ?   balance?: FloatFilter | Float,
+       ?   createdAt?: DateTimeFilter | DateTime,
+       ?   updatedAt?: DateTimeFilter | DateTime,
+       ?   user?: UserRelationFilter | UserWhereInput,
+       ?   sourceTransactions?: TransactionListRelationFilter,
+       ?   destinationTransactions?: TransactionListRelationFilter
+         }
+       })
+
+Argument `where` of type WalletWhereUniqueInput needs at least one of `id`, `number` or `userId` arguments. Available options are marked with ?.
+2024-07-25 04:49:21 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 04:49:24 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 04:49:24 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: WalletsModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 04:49:24 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 04:49:24 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 04:49:24 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 04:49:24 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 04:49:24 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 04:49:24 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 04:49:24 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 04:49:24 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 04:49:24 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 04:49:24 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 04:49:24 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 04:49:24 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 04:49:24 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 04:49:24 [error] [Wallet System API]: Transporter is ready
+2024-07-25 04:49:24 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 04:49:52 [error] [Wallet System API]: 
+Invalid `this.prisma.wallet.findUniqueOrThrow()` invocation in
+/home/olatisun/gray/wallet-system-api/src/wallets/wallets.service.ts:18:37
+
+  15 
+  16 async findWalletByUserId(userId: string): Promise<Wallet | null> {
+  17   console.log(userId);
+→ 18   return await this.prisma.wallet.findUniqueOrThrow({
+         where: {
+           userId: undefined,
+       ?   id?: String,
+       ?   number?: String,
+       ?   AND?: WalletWhereInput | WalletWhereInput[],
+       ?   OR?: WalletWhereInput[],
+       ?   NOT?: WalletWhereInput | WalletWhereInput[],
+       ?   balance?: FloatFilter | Float,
+       ?   createdAt?: DateTimeFilter | DateTime,
+       ?   updatedAt?: DateTimeFilter | DateTime,
+       ?   user?: UserRelationFilter | UserWhereInput,
+       ?   sourceTransactions?: TransactionListRelationFilter,
+       ?   destinationTransactions?: TransactionListRelationFilter
+         }
+       })
+
+Argument `where` of type WalletWhereUniqueInput needs at least one of `id`, `number` or `userId` arguments. Available options are marked with ?.
+2024-07-25 04:50:04 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 04:50:08 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 04:50:08 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: WalletsModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 04:50:08 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 04:50:08 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 04:50:08 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 04:50:08 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 04:50:08 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 04:50:08 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 04:50:08 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 04:50:08 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 04:50:08 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 04:50:08 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 04:50:08 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 04:50:08 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 04:50:08 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 04:50:08 [error] [Wallet System API]: Transporter is ready
+2024-07-25 04:50:08 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 04:50:12 [error] [Wallet System API]: 
+Invalid `this.prisma.wallet.findUniqueOrThrow()` invocation in
+/home/olatisun/gray/wallet-system-api/src/wallets/wallets.service.ts:18:37
+
+  15 
+  16 async findWalletByUserId(userId: string): Promise<Wallet | null> {
+  17   console.log(userId);
+→ 18   return await this.prisma.wallet.findUniqueOrThrow({
+         where: {
+           userId: undefined,
+       ?   id?: String,
+       ?   number?: String,
+       ?   AND?: WalletWhereInput | WalletWhereInput[],
+       ?   OR?: WalletWhereInput[],
+       ?   NOT?: WalletWhereInput | WalletWhereInput[],
+       ?   balance?: FloatFilter | Float,
+       ?   createdAt?: DateTimeFilter | DateTime,
+       ?   updatedAt?: DateTimeFilter | DateTime,
+       ?   user?: UserRelationFilter | UserWhereInput,
+       ?   sourceTransactions?: TransactionListRelationFilter,
+       ?   destinationTransactions?: TransactionListRelationFilter
+         }
+       })
+
+Argument `where` of type WalletWhereUniqueInput needs at least one of `id`, `number` or `userId` arguments. Available options are marked with ?.
+2024-07-25 04:50:31 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2
+2024-07-25 09:21:44 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 09:21:44 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 09:21:44 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 09:21:44 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 09:21:44 [info] [Wallet System API]: Mapped {/transfer/fetch-all, GET} route
+2024-07-25 09:21:44 [error] [Wallet System API]: Transporter is ready
+2024-07-25 09:21:44 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 09:23:02 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 09:23:12 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 09:23:12 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 09:25:03 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 09:25:07 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 09:25:07 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2
+2024-07-25 10:56:59 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 10:56:59 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 10:56:59 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 10:56:59 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 10:56:59 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 10:56:59 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 10:56:59 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 10:56:59 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 10:56:59 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 10:56:59 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 10:56:59 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 10:56:59 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 10:56:59 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 10:56:59 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 10:56:59 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 10:56:59 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 10:56:59 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 10:56:59 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 10:56:59 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 10:56:59 [info] [Wallet System API]: Mapped {/transfer/fetch-all, GET} route
+2024-07-25 10:56:59 [info] [Wallet System API]: Mapped {/transfer/wallet-topup, POST} route
+2024-07-25 10:56:59 [info] [Wallet System API]: Mapped {/transfer/withdraw, POST} route
+2024-07-25 10:56:59 [error] [Wallet System API]: Transporter is ready
+2024-07-25 10:56:59 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 11:31:18 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 11:31:30 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 11:31:30 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 12:09:34 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:09:42 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 12:09:42 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: WalletsModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 12:09:42 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 12:09:42 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 12:09:42 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 12:09:42 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 12:09:42 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 12:09:42 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 12:09:42 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 12:09:42 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 12:09:42 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 12:09:42 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 12:09:42 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 12:09:42 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 12:09:42 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 12:09:42 [info] [Wallet System API]: Mapped {/transfer/fetch-all, GET} route
+2024-07-25 12:09:42 [info] [Wallet System API]: Mapped {/transfer/wallet-topup, POST} route
+2024-07-25 12:09:42 [info] [Wallet System API]: Mapped {/transfer/withdraw, POST} route
+2024-07-25 12:09:42 [error] [Wallet System API]: Transporter is ready
+2024-07-25 12:09:42 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 12:10:09 [error] [Wallet System API]: No Wallet found
+2024-07-25 12:10:58 [error] [Wallet System API]: No Wallet found
+2024-07-25 12:11:41 [error] [Wallet System API]: No Wallet found
+2024-07-25 12:12:51 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:12:54 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 12:12:54 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 12:12:54 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 12:12:54 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 12:12:54 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 12:12:54 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: WalletsModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 12:12:55 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 12:12:55 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 12:12:55 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 12:12:55 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 12:12:55 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 12:12:55 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 12:12:55 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 12:12:55 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 12:12:55 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 12:12:55 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 12:12:55 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 12:12:55 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 12:12:55 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 12:12:55 [info] [Wallet System API]: Mapped {/transfer/fetch-all, GET} route
+2024-07-25 12:12:55 [info] [Wallet System API]: Mapped {/transfer/wallet-topup, POST} route
+2024-07-25 12:12:55 [info] [Wallet System API]: Mapped {/transfer/withdraw, POST} route
+2024-07-25 12:12:55 [error] [Wallet System API]: Transporter is ready
+2024-07-25 12:12:55 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 12:13:15 [error] [Wallet System API]: No Wallet found
+2024-07-25 12:14:17 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:14:28 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 12:14:28 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 12:16:24 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:16:35 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 12:16:35 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 12:18:50 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:18:55 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 12:18:55 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: WalletsModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 12:18:55 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 12:18:55 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 12:18:55 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 12:18:55 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 12:18:55 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 12:18:55 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 12:18:55 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 12:18:55 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 12:18:55 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 12:18:55 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 12:18:55 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 12:18:55 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 12:18:55 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 12:18:55 [info] [Wallet System API]: Mapped {/transfer/fetch-all, GET} route
+2024-07-25 12:18:55 [info] [Wallet System API]: Mapped {/transfer/wallet-topup, POST} route
+2024-07-25 12:18:55 [info] [Wallet System API]: Mapped {/transfer/withdraw, POST} route
+2024-07-25 12:18:55 [error] [Wallet System API]: Transporter is ready
+2024-07-25 12:18:55 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 12:21:29 [error] [Wallet System API]: Error Occured during User Login UnauthorizedException: Incorrect Credentials
+2024-07-25 12:23:56 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:24:04 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 12:24:04 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: WalletsModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 12:24:04 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 12:24:04 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 12:24:04 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 12:24:04 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 12:24:04 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 12:24:04 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 12:24:04 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 12:24:04 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 12:24:04 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 12:24:04 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 12:24:04 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 12:24:04 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 12:24:04 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 12:24:04 [info] [Wallet System API]: Mapped {/transfer/fetch-all, GET} route
+2024-07-25 12:24:04 [info] [Wallet System API]: Mapped {/transfer/wallet-topup, POST} route
+2024-07-25 12:24:04 [info] [Wallet System API]: Mapped {/transfer/withdraw, POST} route
+2024-07-25 12:24:04 [error] [Wallet System API]: Transporter is ready
+2024-07-25 12:24:04 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 12:25:51 [error] [Wallet System API]: Transaction API error: Transaction already closed: A commit cannot be executed on an expired transaction. The timeout for this transaction was 5000 ms, however 9271 ms passed since the start of the transaction. Consider increasing the interactive transaction timeout or doing less work in the transaction.
+2024-07-25 12:28:22 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:28:32 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 12:28:32 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 12:30:07 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:30:17 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 12:30:17 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 12:31:03 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:31:06 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 12:31:06 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: WalletsModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 12:31:06 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 12:31:06 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 12:31:06 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 12:31:06 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 12:31:06 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 12:31:06 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 12:31:06 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 12:31:06 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 12:31:06 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 12:31:06 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 12:31:06 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 12:31:06 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 12:31:06 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 12:31:06 [info] [Wallet System API]: Mapped {/transfer/fetch-all, GET} route
+2024-07-25 12:31:06 [info] [Wallet System API]: Mapped {/transfer/wallet-topup, POST} route
+2024-07-25 12:31:06 [info] [Wallet System API]: Mapped {/transfer/withdraw, POST} route
+2024-07-25 12:31:06 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 12:31:15 [error] [Wallet System API]: Transporter is ready
+2024-07-25 12:40:36 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:40:44 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 12:40:44 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: WalletsModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 12:40:44 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 12:40:44 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 12:40:44 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 12:40:44 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 12:40:44 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 12:40:44 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 12:40:44 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 12:40:44 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 12:40:44 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 12:40:44 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 12:40:44 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 12:40:44 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 12:40:44 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 12:40:44 [info] [Wallet System API]: Mapped {/transfer/fetch-all, GET} route
+2024-07-25 12:40:44 [info] [Wallet System API]: Mapped {/transfer/wallet-topup, POST} route
+2024-07-25 12:40:44 [info] [Wallet System API]: Mapped {/transfer/withdraw, POST} route
+2024-07-25 12:40:44 [error] [Wallet System API]: Transporter is ready
+2024-07-25 12:40:44 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 12:42:06 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:42:14 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 12:42:14 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: WalletsModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 12:42:14 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 12:42:14 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 12:42:14 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 12:42:14 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 12:42:14 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 12:42:14 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 12:42:14 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 12:42:14 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 12:42:14 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 12:42:14 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 12:42:14 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 12:42:14 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 12:42:14 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 12:42:14 [info] [Wallet System API]: Mapped {/transfer/fetch-all, GET} route
+2024-07-25 12:42:14 [info] [Wallet System API]: Mapped {/transfer/wallet-topup, POST} route
+2024-07-25 12:42:14 [info] [Wallet System API]: Mapped {/transfer/withdraw, POST} route
+2024-07-25 12:42:14 [error] [Wallet System API]: Transporter is ready
+2024-07-25 12:42:14 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 12:56:34 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:56:46 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 12:56:46 [error] [Wallet System API]: uncaughtException: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+PrismaClientInitializationError: Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 9)
+    at t (/home/olatisun/gray/wallet-system-api/node_modules/@prisma/client/runtime/library.js:111:2488)
+    at Proxy.onModuleInit (/home/olatisun/gray/wallet-system-api/src/prisma/prisma.service.ts:7:5)
+    at async Promise.all (index 0)
+    at async callModuleInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+    at async NestApplication.callInitHook (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application-context.js:223:13)
+    at async NestApplication.init (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:100:9)
+    at async NestApplication.listen (/home/olatisun/gray/wallet-system-api/node_modules/@nestjs/core/nest-application.js:169:33)
+    at bootstrap (/home/olatisun/gray/wallet-system-api/src/main.ts:68:3)
+2024-07-25 12:57:19 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:57:24 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 12:57:24 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: WalletsModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 12:57:24 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 12:57:24 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 12:57:24 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 12:57:24 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 12:57:24 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 12:57:24 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 12:57:24 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 12:57:24 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 12:57:24 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 12:57:24 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 12:57:24 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 12:57:24 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 12:57:24 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 12:57:24 [info] [Wallet System API]: Mapped {/transfer/fetch-all, GET} route
+2024-07-25 12:57:24 [info] [Wallet System API]: Mapped {/transfer/wallet-topup, POST} route
+2024-07-25 12:57:24 [info] [Wallet System API]: Mapped {/transfer/withdraw, POST} route
+2024-07-25 12:57:24 [info] [Wallet System API]: Nest application successfully started
+2024-07-25 12:57:31 [error] [Wallet System API]: Transporter is ready
+2024-07-25 12:57:58 [info] [Wallet System API]: Starting [Wallet System API] on port=[2322]
+2024-07-25 12:58:00 [info] [Wallet System API]: Starting Nest application...
+2024-07-25 12:58:00 [info] [Wallet System API]: DatabaseModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: PassportModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: MailerModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: ConfigHostModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: TransactionsModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: WalletsModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: ConfigModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: UsersModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: LoggerModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: JwtModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: MailerCoreModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: TransferModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: EmailModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: AppModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: AuthModule dependencies initialized
+2024-07-25 12:58:00 [info] [Wallet System API]: AuthController {/auth}:
+2024-07-25 12:58:00 [info] [Wallet System API]: Mapped {/auth/register, POST} route
+2024-07-25 12:58:00 [info] [Wallet System API]: Mapped {/auth/login, POST} route
+2024-07-25 12:58:00 [info] [Wallet System API]: Mapped {/auth/request-reset-password, POST} route
+2024-07-25 12:58:00 [info] [Wallet System API]: Mapped {/auth/reset-password, GET} route
+2024-07-25 12:58:00 [info] [Wallet System API]: Mapped {/auth/reset-password, POST} route
+2024-07-25 12:58:00 [info] [Wallet System API]: UserController {/users}:
+2024-07-25 12:58:00 [info] [Wallet System API]: Mapped {/users, GET} route
+2024-07-25 12:58:00 [info] [Wallet System API]: Mapped {/users/:id, POST} route
+2024-07-25 12:58:00 [info] [Wallet System API]: WalletsController {/wallets}:
+2024-07-25 12:58:00 [info] [Wallet System API]: TransactionsController {/transactions}:
+2024-07-25 12:58:00 [info] [Wallet System API]: TransferController {/transfer}:
+2024-07-25 12:58:00 [info] [Wallet System API]: Mapped {/transfer/funds, POST} route
+2024-07-25 12:58:00 [info] [Wallet System API]: Mapped {/transfer/fetch-all, GET} route
+2024-07-25 12:58:00 [info] [Wallet System API]: Mapped {/transfer/wallet-topup, POST} route
+2024-07-25 12:58:00 [info] [Wallet System API]: Mapped {/transfer/withdraw, POST} route
+2024-07-25 12:58:00 [error] [Wallet System API]: Transporter is ready
+2024-07-25 12:58:00 [info] [Wallet System API]: Nest application successfully started
