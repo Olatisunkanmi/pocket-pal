@@ -45,7 +45,30 @@ model Wallet {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  user User @relation(fields: [userId], references: [id])
+  user         User          @relation(fields: [userId], references: [id])
+  sourceTransactions Transaction[] @relation("WalletSourceTransactions")
+  destinationTransactions Transaction[] @relation("WalletDestinationTransactions")
+
 
   @@map("wallets")
+}
+
+model Transaction {
+  id                  String          @id @default(uuid())
+  amount              Float
+  type                TransactionType
+  sourceWallet        Wallet?         @relation("WalletSourceTransactions", fields: [sourceWalletId], references: [id])
+  sourceWalletId      String?
+  destinationWallet   Wallet?         @relation("WalletDestinationTransactions", fields: [destinationWalletId], references: [id])
+  destinationWalletId String?
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+
+  @@map("transactions")
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  TRANSFER
 }
