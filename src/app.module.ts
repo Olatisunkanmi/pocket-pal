@@ -6,7 +6,6 @@ import { EmailService } from './common/email/email.service';
 import { EmailModule } from './common/email/email.module';
 import { configuration, validate } from 'config/configuration';
 import { WalletsModule } from './wallets/wallets.module';
-import { TransactionsModule } from './transactions/transactions.module';
 import { TransferModule } from './transfer/transfer.module';
 
 @Module({
@@ -21,7 +20,6 @@ import { TransferModule } from './transfer/transfer.module';
     UsersModule,
     EmailModule,
     WalletsModule,
-    TransactionsModule,
     TransferModule,
   ],
   controllers: [],

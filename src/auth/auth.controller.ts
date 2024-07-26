@@ -38,7 +38,7 @@ export class AuthController {
   }
 
   /**
-   * Change user password
+   * Request for reset password mail
    */
   @Public()
   @Post('request-reset-password')
@@ -46,6 +46,9 @@ export class AuthController {
     return this.authService.sendResetPasswordMail(dto);
   }
 
+  /**
+   * Render reset password page to client
+   */
   @Public()
   @Get('reset-password')
   @Render('resetPassword')
@@ -53,6 +56,9 @@ export class AuthController {
     return { token };
   }
 
+  /**
+   * Handle reset Password request
+   */
   @Public()
   @Post('reset-password')
   async handleResetPassword(
