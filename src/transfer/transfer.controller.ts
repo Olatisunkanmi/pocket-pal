@@ -28,8 +28,8 @@ export class TransferController {
    * Find Walllet by Id
    */
   @Post(':id')
-  async findWalletById(@Query('id') id: string) {
-    return await this.transferService.findWalletById(id);
+  async findWalletById(@Query('number') number: string) {
+    return await this.transferService.findWalletByNumber(number);
   }
 
   /**
