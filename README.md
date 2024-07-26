@@ -109,7 +109,7 @@ Authorization: Bearer TOKEN
 
 ## Endpoints
 
-You can test the the API live using on the swagger docs [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://wallet-system-api.onrender.com/api-docs)
+You can test the the API live using on the swagger docs (https://wallet-system-api.onrender.com/api-docs)
 
 ### Auth
 

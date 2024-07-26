@@ -40,6 +40,14 @@ export class TransferService extends CrudService<
     super(prisma.transaction);
   }
 
+  async findWalletById(id: string) {
+    return await this.walletService.findUnique({
+      where: {
+        id,
+      },
+    });
+  }
+
   async transferFunds(dto: CreateTransferDto, senderId: string) {
     const senderWallet = await this.walletService.findWalletByUserId(senderId);
 
