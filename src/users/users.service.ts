@@ -2,7 +2,8 @@ import { CrudService } from '../common/database/crud.service';
 import { UsersMapType } from '../users/users.maptype';
 import { ConflictException, Injectable } from '@nestjs/common';
 import { Prisma, PrismaClient, Wallet } from '@prisma/client';
-import { UserSignUpDto } from 'src/auth/dto/auth.dto';
+import { QueryUsersDto, UserSignUpDto } from 'src/auth/dto/auth.dto';
+import { PaginationSearchOptionsDto } from 'src/common/database/pagination/pagination-search-options.dto';
 
 export interface User {
   id: string;
@@ -73,13 +74,12 @@ export class UsersService extends CrudService<
   /**
    * Find All Users
    */
-  public async getAllUsers(): Promise<any> {
-    return await this.findManyPaginate({
-      select: {
-        id: true,
-        email: true,
-        wallets: true,
-      },
-    });
+  public async getAllUsers(dto: QueryUsersDto): Promise<any> {
+    const ParsedQuery = this.parseQueryFilter(dto, ['name', 'wallets.name']);
+    const findArgs = {
+      where: { ...ParsedQuery },
+      include: { wallets: dto.wallet ? true : false },
+    };
+    return await this.findManyPaginate(findArgs, dto);
   }
 }

@@ -1,4 +1,5 @@
 import { IsNotEmpty, IsString, IsEmail } from 'class-validator';
+import { ApiBody } from '@nestjs/swagger';
 
 export class ResetPasswordDto {
   @IsString()
@@ -6,16 +7,41 @@ export class ResetPasswordDto {
   email: string;
 }
 
+export const ResetPasswordSwaggerDto = ApiBody({
+  schema: {
+    type: 'object',
+    properties: {
+      email: {
+        type: 'string',
+      },
+    },
+  },
+});
 export class ChangeUserPasswordDto {
   @IsString()
-  @IsNotEmpty()
   password: string;
 
   @IsString()
-  @IsNotEmpty()
   confirmPassword: string;
 
   @IsString()
-  @IsNotEmpty()
   token: string;
 }
+
+export const ChangeUserPasswordSwaggerDto = ApiBody({
+  schema: {
+    type: 'object',
+    properties: {
+      password: {
+        type: 'string',
+      },
+
+      confirmPassword: {
+        type: 'string',
+      },
+      token: {
+        type: 'string',
+      },
+    },
+  },
+});

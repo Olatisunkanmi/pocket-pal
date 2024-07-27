@@ -15,10 +15,12 @@ import { TransactionsMapType } from './transfer.maptype.dto';
 import { WalletsService } from 'src/wallets/wallets.service';
 import {
   CreateTransferDto,
+  fetchAllTransactionsQuery,
   WalletTopUpDto,
   WithdrawFromWalletDto,
 } from './dto/create-transfer.dto';
 import { CONSTANT } from 'src/common/constants';
+import moment from 'moment';
 
 const {
   INSUFFICIENT_BALANCE,
@@ -90,8 +92,27 @@ export class TransferService extends CrudService<
     });
   }
 
-  async fetchAllTransactions() {
-    return this.findManyPaginate({});
+  async fetchAllTransactions(dto: fetchAllTransactionsQuery) {
+    const ParsedQuery = this.parseQueryFilter(dto, [
+      {
+        key: 'startDate',
+        where: (startDate: Date) => {
+          const mStartDate = moment(startDate).startOf('day').toDate();
+          return { createdAt: { gte: mStartDate } };
+        },
+      },
+      {
+        key: 'endDate',
+        where: (endDate) => {
+          const mEndDate = moment(endDate).endOf('day').toDate();
+          return { createdAt: { lte: mEndDate } };
+        },
+      },
+    ]);
+    const findArgs = {
+      where: { ...ParsedQuery },
+    };
+    return await this.findManyPaginate(findArgs, dto);
   }
 
   async walletTopUp(dto: WalletTopUpDto, userId: string) {
@@ -163,3 +184,6 @@ export class TransferService extends CrudService<
     return transaction;
   }
 }
+// function moment(startDate: Date) {
+//   throw new Error('Function not implemented.');
+// }

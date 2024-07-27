@@ -12,6 +12,7 @@ import { TransferService } from './transfer.service';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import {
   CreateTransferDto,
+  fetchAllTransactionsQuery,
   WalletTopUpDto,
   WithdrawFromWalletDto,
 } from './dto/create-transfer.dto';
@@ -48,8 +49,8 @@ export class TransferController {
    * Fetch all transaction list
    */
   @Get('fetch-all')
-  async fetchAllTransactions() {
-    return await this.transferService.fetchAllTransactions();
+  async fetchAllTransactions(@Query() dto: fetchAllTransactionsQuery) {
+    return await this.transferService.fetchAllTransactions(dto);
   }
 
   /**

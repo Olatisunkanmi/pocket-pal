@@ -10,7 +10,12 @@ import {
   Render,
   Res,
 } from '@nestjs/common';
-import { ChangeUserPasswordDto, ResetPasswordDto } from './dto/resetPassword';
+import {
+  ChangeUserPasswordDto,
+  ChangeUserPasswordSwaggerDto,
+  ResetPasswordDto,
+  ResetPasswordSwaggerDto,
+} from './dto/resetPassword';
 import { ApiTags } from '@nestjs/swagger';
 import { UserLoginDto, UserSignUpDto } from './dto/auth.dto';
 
@@ -42,6 +47,7 @@ export class AuthController {
    */
   @Public()
   @Post('request-reset-password')
+  @ResetPasswordSwaggerDto
   async changeUserPassword(@Body() dto: ResetPasswordDto) {
     return this.authService.sendResetPasswordMail(dto);
   }
@@ -61,6 +67,7 @@ export class AuthController {
    */
   @Public()
   @Post('reset-password')
+  @ChangeUserPasswordSwaggerDto
   async handleResetPassword(
     @Body() dto: ChangeUserPasswordDto,
     @Res() res,
