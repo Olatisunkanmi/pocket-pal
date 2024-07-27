@@ -109,7 +109,7 @@ Authorization: Bearer TOKEN
 
 ## Endpoints
 
-You can test the the API live using on the swagger docs [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://wallet-system-api.onrender.com/api-docs)
+You can test the the API live using on the swagger docs (https://wallet-system-api.onrender.com/api-docs)
 
 ### Auth
 
@@ -146,9 +146,9 @@ You can test the the API live using on the swagger docs [<img src="https://run.p
   - **Description**: Log in an existing user.
   - **Request Body**:
     ```json
-        {
-      "email": "rajin19721@tiervio.com",
-      "password": "string"
+    {
+      "email": "kivof34029@vasomly.com",
+      "password": "123456"
     }
     ```
   - **Response**:
@@ -189,25 +189,25 @@ You can test the the API live using on the swagger docs [<img src="https://run.p
   - **Description**: topup a PocketPal.
   - **Request Body**:
     ```json
-        {
-        "amount": 100,
-        "destinationWalletNumber": "2335356622"
-      }
+    {
+      "amount": 100,
+      "destinationWalletNumber": "2335356622"
+    }
     ```
   - **Response**:
     ```json
-        {
-        "message": "Account Top up successsful",
-        "transaction": {
-          "id": "2f8d8192-ebb3-4c7a-a254-411e26af9433",
-          "amount": 100,
-          "type": "DEPOSIT",
-          "sourceWalletId": null,
-          "destinationWalletId": "dec68608-4dd9-4179-94f5-3a3af852d00d",
-          "createdAt": "2024-07-25T10:23:31.177Z",
-          "updatedAt": "2024-07-25T10:23:31.177Z"
-        }
+    {
+      "message": "Account Top up successsful",
+      "transaction": {
+        "id": "2f8d8192-ebb3-4c7a-a254-411e26af9433",
+        "amount": 100,
+        "type": "DEPOSIT",
+        "sourceWalletId": null,
+        "destinationWalletId": "dec68608-4dd9-4179-94f5-3a3af852d00d",
+        "createdAt": "2024-07-25T10:23:31.177Z",
+        "updatedAt": "2024-07-25T10:23:31.177Z"
       }
+    }
     ```
 
 - **Withdraw from PocketPal**
@@ -217,22 +217,22 @@ You can test the the API live using on the swagger docs [<img src="https://run.p
   - **Description**: Withdraw funds from a PocketPal.
   - **Request Body**:
     ```json
-        {
+    {
       "amount": 50,
       "sourceWalletNumber": "2317791815"
-    } 
+    }
     ```
   - **Response**:
     ```json
-          {
-        "id": "8007a215-6800-41b8-988b-8f2212299071",
-        "amount": 50,
-        "type": "WITHDRAWAL",
-        "sourceWalletId": "dec68608-4dd9-4179-94f5-3a3af852d00d",
-        "destinationWalletId": null,
-        "createdAt": "2024-07-25T12:42:22.046Z",
-        "updatedAt": "2024-07-25T12:42:22.046Z"
-      }
+    {
+      "id": "8007a215-6800-41b8-988b-8f2212299071",
+      "amount": 50,
+      "type": "WITHDRAWAL",
+      "sourceWalletId": "dec68608-4dd9-4179-94f5-3a3af852d00d",
+      "destinationWalletId": null,
+      "createdAt": "2024-07-25T12:42:22.046Z",
+      "updatedAt": "2024-07-25T12:42:22.046Z"
+    }
     ```
 
 - **Transfer Funds**
@@ -241,25 +241,25 @@ You can test the the API live using on the swagger docs [<img src="https://run.p
   - **Description**: Transfer funds between PocketPals.
   - **Request Body**:
     ```json
-          {
-        "recipientWalletNumber": "2317791815",
-        "amount": 120
-      }
+    {
+      "recipientWalletNumber": "2317791815",
+      "amount": 120
+    }
     ```
   - **Response**:
     ```json
-          {
-          "message": "Funds Transfer Successful",
-          "transfer": {
-            "id": "92f4375c-8646-4ec9-a4b4-34971f16e1d3",
-            "amount": 120,
-            "type": "TRANSFER",
-            "sourceWalletId": "dec68608-4dd9-4179-94f5-3a3af852d00d",
-            "destinationWalletId": "c8f8259b-13e9-4004-a956-e69ca92ecc2e",
-            "createdAt": "2024-07-25T10:21:10.999Z",
-            "updatedAt": "2024-07-25T10:21:10.999Z"
-          }
-        }
+    {
+      "message": "Funds Transfer Successful",
+      "transfer": {
+        "id": "92f4375c-8646-4ec9-a4b4-34971f16e1d3",
+        "amount": 120,
+        "type": "TRANSFER",
+        "sourceWalletId": "dec68608-4dd9-4179-94f5-3a3af852d00d",
+        "destinationWalletId": "c8f8259b-13e9-4004-a956-e69ca92ecc2e",
+        "createdAt": "2024-07-25T10:21:10.999Z",
+        "updatedAt": "2024-07-25T10:21:10.999Z"
+      }
+    }
     ```
 
 ### Transaction
@@ -350,7 +350,6 @@ The API handles errors using standardized HTTP status codes and descriptive erro
 - **401 Unauthorized**: Missing or invalid authentication token.
 - **404 Not Found**: Resource not found.
 - **500 Internal Server Error**: Unexpected server error.
-
 
 ## Contributing
 

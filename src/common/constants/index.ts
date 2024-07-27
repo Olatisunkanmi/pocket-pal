@@ -38,6 +38,6 @@ export const SENSITIVE_INFO = ['password'];
 export const MAIL = {
   noreply: 'noreply@walletAPI.ng',
   waitListSubject: 'Welcome to Wallet API',
-  waitListFrom: 'Wallet API',
-  resetPassword: "Wallet API: Here's the reset password link you requested",
+  waitListFrom: 'PEN PAL',
+  resetPassword: "PEN-PAL API: Here's the reset password link you requested",
 };

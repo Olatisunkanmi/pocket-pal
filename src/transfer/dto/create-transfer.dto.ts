@@ -1,4 +1,15 @@
-import { IsNotEmpty, IsNumber, IsString, Min } from 'class-validator';
+import { TransactionType } from '@prisma/client';
+import { Type } from 'class-transformer';
+import {
+  IsDate,
+  IsEnum,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+  Min,
+} from 'class-validator';
+import { PaginationSearchOptionsDto } from 'src/common/database/pagination/pagination-search-options.dto';
 
 export class CreateTransferDto {
   @IsString()
@@ -28,4 +39,10 @@ export class WithdrawFromWalletDto {
   @IsString()
   @IsNotEmpty()
   sourceWalletNumber: string;
+}
+
+export class fetchAllTransactionsQuery extends PaginationSearchOptionsDto {
+  @IsEnum(TransactionType)
+  @IsOptional()
+  transaction_type: TransactionType;
 }

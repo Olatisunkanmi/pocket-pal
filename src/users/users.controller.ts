@@ -1,7 +1,9 @@
-import { Controller, Get, Param, Post } from '@nestjs/common';
+import { Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { ApiTags } from '@nestjs/swagger';
 import { Public } from 'src/common/decorators/auth.public.decorator';
+import { PaginationSearchOptionsDto } from 'src/common/database/pagination/pagination-search-options.dto';
+import { QueryUsersDto } from 'src/auth/dto/auth.dto';
 
 @ApiTags('Users')
 @Controller('users')
@@ -10,8 +12,8 @@ class UserController {
 
   @Public()
   @Get('/')
-  async getAllUsers() {
-    return this.userServices.getAllUsers();
+  async getAllUsers(@Query() dto: QueryUsersDto) {
+    return this.userServices.getAllUsers(dto);
   }
 
   @Public()

@@ -5,6 +5,7 @@ import {
   IsOptional,
   IsNotEmpty,
 } from 'class-validator';
+import { PaginationSearchOptionsDto } from 'src/common/database/pagination/pagination-search-options.dto';
 
 export class UserLoginDto {
   @IsString()
@@ -33,4 +34,9 @@ export class UserSignUpDto {
   @IsString()
   @IsNotEmpty()
   last_name: string;
+}
+
+export class QueryUsersDto extends PaginationSearchOptionsDto {
+  @IsOptional()
+  wallet: string;
 }
